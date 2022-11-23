@@ -1,4 +1,5 @@
 ﻿using PlatformService.Persistence.Interfaces.Repositories;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PlatformService.Persistence.Interfaces
@@ -7,7 +8,7 @@ namespace PlatformService.Persistence.Interfaces
     {
         IPlatformRepository Platforms { get; }
 
-        Task Commit();
+        Task Commit(CancellationToken cancellationToken);
         void Dispose();
     }
 }

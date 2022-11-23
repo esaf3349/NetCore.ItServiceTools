@@ -11,7 +11,8 @@ namespace PlatformService.Persistence.Interfaces.Repositories.Common
         Task<bool> Add(TEntity entity);
         Task<bool> Update(TEntity entity);
         Task<bool> Delete(int id);
-        Task<TEntity> Get(int id);
-        Task<IEnumerable<TEntity>> Get(Expression<Func<TEntity, bool>> filter, int pageNumber, int pageSize);
+        Task<TEntity> GetOne(int id);
+        Task<TEntity> GetOne(Expression<Func<TEntity, bool>> filter);
+        Task<IEnumerable<TEntity>> GetMany(Expression<Func<TEntity, bool>> filter, int pageNumber, int pageSize);
     }
 }

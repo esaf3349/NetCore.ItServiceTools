@@ -6,6 +6,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PlatformService.Core\PlatformService.Core.csproj" />
+    <ProjectReference Include="..\PlatformService.Persistence.Interfaces\PlatformService.Persistence.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="MediatR" Version="11.1.0" />
   </ItemGroup>
 
 </Project>
