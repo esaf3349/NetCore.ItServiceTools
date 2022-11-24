@@ -24,12 +24,6 @@ namespace PlatformService.Application.Handlers.Platforms
 
         public async Task<PlatformsGetAllVm> Handle(PlatformsGetAllQuery request, CancellationToken cancellationToken)
         {
-            if (request.PageNumber < 1)
-                request.PageNumber = 1;
-
-            if (request.PageSize < 1)
-                request.PageSize = 1;
-
             var platforms = await _uow.Platforms.GetMany(filter => filter.IsDeleted == false, request.PageNumber, request.PageSize);
             var dtos = _mapper.Map<IEnumerable<PlatformsGetAllDto>>(platforms).ToArray();
             var vm = new PlatformsGetAllVm
