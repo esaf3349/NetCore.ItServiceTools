@@ -2,17 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PlatformService.Persistence.Interfaces.Repositories.Common
 {
-    public interface IGenericRepository<TEntity> where TEntity : IIntKeyIdentifiable
+    public interface IGenericRepository<TEntity> : IDisposable where TEntity : IIntKeyIdentifiable
     {
-        Task<bool> Add(TEntity entity);
-        Task<bool> Update(TEntity entity);
-        Task<bool> Delete(int id);
-        Task<TEntity> GetOne(int id);
-        Task<TEntity> GetOne(Expression<Func<TEntity, bool>> filter);
-        Task<IEnumerable<TEntity>> GetMany(Expression<Func<TEntity, bool>> filter, int pageNumber, int pageSize);
+        int Add(TEntity entity);
+        void Update(TEntity entity);
+        void Delete(TEntity entity);
+        Task<TEntity> GetOneAsync(int id, CancellationToken cancellationToken);
+        Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken);
+        Task<IEnumerable<TEntity>> GetManyAsync(Expression<Func<TEntity, bool>> filter, int pageNumber, int pageSize, CancellationToken cancellationToken);
     }
 }

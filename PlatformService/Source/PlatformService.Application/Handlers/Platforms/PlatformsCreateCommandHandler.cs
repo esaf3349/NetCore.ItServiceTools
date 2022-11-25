@@ -25,8 +25,9 @@ namespace PlatformService.Application.Handlers.Platforms
 
             entity.IsDeleted = false;
 
-            await _uow.Platforms.Add(entity);
-            await _uow.Commit(cancellationToken);
+            _uow.Platforms.Add(entity);
+
+            await _uow.CommitAsync(cancellationToken);
 
             return entity.Id;
         }

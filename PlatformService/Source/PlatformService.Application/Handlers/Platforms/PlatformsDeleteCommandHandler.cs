@@ -22,15 +22,16 @@ namespace PlatformService.Application.Handlers.Platforms
 
         public async Task<Unit> Handle(PlatformsDeleteCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _uow.Platforms.GetOne(filter => filter.Id == request.Id && filter.IsDeleted == false);
+            var entity = await _uow.Platforms.GetOneAsync(filter => filter.Id == request.Id && filter.IsDeleted == false, cancellationToken);
 
             if (entity == null)
                 throw new NotFoundException(nameof(Platform), request.Id);
 
             entity.IsDeleted = true;
 
-            await _uow.Platforms.Update(entity);
-            await _uow.Commit(cancellationToken);
+            _uow.Platforms.Update(entity);
+
+            await _uow.CommitAsync(cancellationToken);
 
             return Unit.Value;
         }

@@ -23,7 +23,7 @@ namespace PlatformService.Application.Handlers.Platforms
 
         public async Task<PlatformsGetByIdVm> Handle(PlatformsGetByIdQuery request, CancellationToken cancellationToken)
         {
-            var entity = await _uow.Platforms.GetOne(filter => filter.Id == request.Id && filter.IsDeleted == false);
+            var entity = await _uow.Platforms.GetOneAsync(filter => filter.Id == request.Id && filter.IsDeleted == false, cancellationToken);
 
             if (entity == null)
                 throw new NotFoundException(nameof(Platform), request.Id);
