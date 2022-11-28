@@ -7,7 +7,7 @@ namespace PlatformService.Application
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services)
+        public static IServiceCollection AddMediatrApplication(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());

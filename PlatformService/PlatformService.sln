@@ -5,17 +5,21 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{72A5CA7D-17FF-4658-8631-8254E496D626}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService.Core", "Source\PlatformService.Core\PlatformService.Core.csproj", "{05E8218A-B1FA-4C4D-9674-9F1ED4177CBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformService.Core", "Source\PlatformService.Core\PlatformService.Core.csproj", "{05E8218A-B1FA-4C4D-9674-9F1ED4177CBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService.Application", "Source\PlatformService.Application\PlatformService.Application.csproj", "{A7CAA18F-FA06-45AB-960B-CDA9FB2F8B68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformService.Application", "Source\PlatformService.Application\PlatformService.Application.csproj", "{A7CAA18F-FA06-45AB-960B-CDA9FB2F8B68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService.Persistence.Interfaces", "Source\PlatformService.Persistence.Interfaces\PlatformService.Persistence.Interfaces.csproj", "{30707A9A-1A67-4B1C-9EE5-8FA5987B9F0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformService.Persistence.Interfaces", "Source\PlatformService.Persistence.Interfaces\PlatformService.Persistence.Interfaces.csproj", "{30707A9A-1A67-4B1C-9EE5-8FA5987B9F0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService.Persistence.EntityFramework", "Source\PlatformService.Persistence.EntityFramework\PlatformService.Persistence.EntityFramework.csproj", "{CBF12E81-5C16-4A92-B256-6D3FC761CA10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformService.Persistence.EntityFramework", "Source\PlatformService.Persistence.EntityFramework\PlatformService.Persistence.EntityFramework.csproj", "{CBF12E81-5C16-4A92-B256-6D3FC761CA10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService.Infrastructure.Interfaces", "Source\PlatformService.Infrastructure.Interfaces\PlatformService.Infrastructure.Interfaces.csproj", "{44451BCF-DDA1-44A7-BF51-601B67E38119}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformService.Infrastructure.Interfaces", "Source\PlatformService.Infrastructure.Interfaces\PlatformService.Infrastructure.Interfaces.csproj", "{44451BCF-DDA1-44A7-BF51-601B67E38119}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformService.Infrastructure.Implementation", "Source\PlatformService.Infrastructure.Implementation\PlatformService.Infrastructure.Implementation.csproj", "{C39DE71F-25DE-4E9C-BCBC-7B62A1EA1BE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformService.Infrastructure.Implementation", "Source\PlatformService.Infrastructure.Implementation\PlatformService.Infrastructure.Implementation.csproj", "{C39DE71F-25DE-4E9C-BCBC-7B62A1EA1BE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformService.Entry", "Source\PlatformService.Entry\PlatformService.Entry.csproj", "{7A2D8C92-EBA5-464D-8D4D-FD2262AB89C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlatformService.Entry.WebApi", "Source\PlatformService.Entry.WebApi\PlatformService.Entry.WebApi.csproj", "{CAAAD372-696B-40E7-9346-E66B36F0F531}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +51,14 @@ Global
 		{C39DE71F-25DE-4E9C-BCBC-7B62A1EA1BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C39DE71F-25DE-4E9C-BCBC-7B62A1EA1BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C39DE71F-25DE-4E9C-BCBC-7B62A1EA1BE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A2D8C92-EBA5-464D-8D4D-FD2262AB89C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A2D8C92-EBA5-464D-8D4D-FD2262AB89C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A2D8C92-EBA5-464D-8D4D-FD2262AB89C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A2D8C92-EBA5-464D-8D4D-FD2262AB89C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAAAD372-696B-40E7-9346-E66B36F0F531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAAAD372-696B-40E7-9346-E66B36F0F531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAAAD372-696B-40E7-9346-E66B36F0F531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAAAD372-696B-40E7-9346-E66B36F0F531}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +70,8 @@ Global
 		{CBF12E81-5C16-4A92-B256-6D3FC761CA10} = {72A5CA7D-17FF-4658-8631-8254E496D626}
 		{44451BCF-DDA1-44A7-BF51-601B67E38119} = {72A5CA7D-17FF-4658-8631-8254E496D626}
 		{C39DE71F-25DE-4E9C-BCBC-7B62A1EA1BE0} = {72A5CA7D-17FF-4658-8631-8254E496D626}
+		{7A2D8C92-EBA5-464D-8D4D-FD2262AB89C6} = {72A5CA7D-17FF-4658-8631-8254E496D626}
+		{CAAAD372-696B-40E7-9346-E66B36F0F531} = {72A5CA7D-17FF-4658-8631-8254E496D626}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97230F6B-A8C7-4F85-A66D-1CEFABA21DE1}
