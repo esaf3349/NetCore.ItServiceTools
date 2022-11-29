@@ -38,7 +38,7 @@ namespace PlatformService.Entry.WebApi.Controllers
             return Ok(id);
         }
 
-        [HttpDelete("{id:int}/delete")]
+        [HttpPost("{id:int}/delete")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Delete(int id)

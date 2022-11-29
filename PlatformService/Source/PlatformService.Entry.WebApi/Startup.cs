@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using PlatformService.Entry.WebApi.Middlewares;
 using AppProfile = PlatformService.Entry.SqlServerProfile;
 
@@ -22,6 +23,13 @@ namespace PlatformService.Entry.WebApi
             AppProfile.AddLayers(services, Configuration);
 
             services.AddControllers();
+
+            services.AddSwaggerGen(options => options
+                .SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "PlatformService",
+                    Version = "v1"
+                }));
         }
 
         public void Configure(IApplicationBuilder builder, IWebHostEnvironment env)
@@ -34,6 +42,10 @@ namespace PlatformService.Entry.WebApi
             builder.UseMiddleware<AppExceptionHandlerMiddleware>();
 
             builder.UseHttpsRedirection();
+
+            builder.UseSwagger();
+
+            builder.UseSwaggerUI();
 
             builder.UseRouting();
 
