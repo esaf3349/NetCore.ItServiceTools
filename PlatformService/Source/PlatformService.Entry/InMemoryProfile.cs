@@ -5,7 +5,7 @@ using PlatformService.Persistence.EntityFramework;
 
 namespace PlatformService.Entry
 {
-    public static class InMemoryProfile
+    public class InMemoryProfile
     {
         public static void AddLayers(IServiceCollection services, IConfiguration configuration)
         {

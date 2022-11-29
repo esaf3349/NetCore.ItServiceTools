@@ -1,11 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using PlatformService.Application;
 using PlatformService.Persistence.EntityFramework;
+using System;
 
 namespace PlatformService.Entry
 {
-    public static class SqlServerProfile
+    public class SqlServerProfile
     {
         public static void AddLayers(IServiceCollection services, IConfiguration configuration)
         {
@@ -16,7 +18,15 @@ namespace PlatformService.Entry
 
         public static void RunStartupActions(IServiceScope serviceScope)
         {
-            serviceScope.ApplyAppDatabaseMigrations();
+            try
+            {
+                serviceScope.ApplyAppDatabaseMigrations();
+            }
+            catch (Exception ex)
+            {
+                var logger = serviceScope.ServiceProvider.GetRequiredService<ILogger<SqlServerProfile>>();
+                logger.LogError(ex, "An error occurred while migrating or initializing the database.");
+            }
         }
     }
 }
