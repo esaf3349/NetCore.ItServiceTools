@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using PlatformService.Entry.WebApi.Middlewares;
-using AppProfile = PlatformService.Entry.SqlServerProfile;
+using AppProfile = PlatformService.Entry.InMemoryProfile;
 
 namespace PlatformService.Entry.WebApi
 {
