@@ -5,6 +5,7 @@
     <UserSecretsId>ffadb1ca-96cd-43fd-a03d-41ed5307d97a</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
+	<DockerfileTag>it-service-tools.platform-service</DockerfileTag>
   </PropertyGroup>
 
   <ItemGroup>
