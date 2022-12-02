@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommandsService.Core\CommandsService.Core.csproj" />
+    <ProjectReference Include="..\CommandsService.Infrastructure.Interfaces\CommandsService.Infrastructure.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommandsService.Application\CommandsService.Application.csproj" />
+    <ProjectReference Include="..\CommandsService.Persistence.EntityFramework\CommandsService.Persistence.EntityFramework.csproj" />
+  </ItemGroup>
+
+</Project>
