@@ -3,7 +3,7 @@ using CommandsService.Application.ViewModels.Commands;
 
 namespace CommandsService.Application.Models.Commands
 {
-    public class CommandsGetByIdQuery : GetByIdBaseQuery<CommandsGetByIdVm>
+    public class CommandsGetByIdQuery : GetByIdAbstractQuery<CommandsGetByIdVm>
     {
 
     }
