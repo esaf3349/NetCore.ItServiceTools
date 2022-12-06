@@ -5,19 +5,21 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{C6FF825F-5443-46D1-A367-2F36AB98A6DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService.Core", "Source\CommandsService.Core\CommandsService.Core.csproj", "{999A2FAC-AF5B-4595-9864-87A9D055DED6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandsService.Core", "Source\CommandsService.Core\CommandsService.Core.csproj", "{999A2FAC-AF5B-4595-9864-87A9D055DED6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService.Application", "Source\CommandsService.Application\CommandsService.Application.csproj", "{7EBA4800-8984-481B-988B-30F1DDD1EDB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandsService.Application", "Source\CommandsService.Application\CommandsService.Application.csproj", "{7EBA4800-8984-481B-988B-30F1DDD1EDB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService.Persistence.Interfaces", "Source\CommandsService.Persistence.Interfaces\CommandsService.Persistence.Interfaces.csproj", "{B018EC1D-5939-4B2F-A9BA-B1244B0D3DF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandsService.Persistence.Interfaces", "Source\CommandsService.Persistence.Interfaces\CommandsService.Persistence.Interfaces.csproj", "{B018EC1D-5939-4B2F-A9BA-B1244B0D3DF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService.Persistence.EntityFramework", "Source\CommandsService.Persistence.EntityFramework\CommandsService.Persistence.EntityFramework.csproj", "{0FB2A185-9880-4EDB-BF4D-2E52A901DD6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandsService.Persistence.EntityFramework", "Source\CommandsService.Persistence.EntityFramework\CommandsService.Persistence.EntityFramework.csproj", "{0FB2A185-9880-4EDB-BF4D-2E52A901DD6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService.Infrastructure.Interfaces", "Source\CommandsService.Infrastructure.Interfaces\CommandsService.Infrastructure.Interfaces.csproj", "{D615D568-9DD4-4481-80E1-FEE2F4705199}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandsService.Infrastructure.Interfaces", "Source\CommandsService.Infrastructure.Interfaces\CommandsService.Infrastructure.Interfaces.csproj", "{D615D568-9DD4-4481-80E1-FEE2F4705199}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService.Infrastructure.Implementation", "Source\CommandsService.Infrastructure.Implementation\CommandsService.Infrastructure.Implementation.csproj", "{3AB22265-01E6-467F-98EE-87979C1D4F39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandsService.Infrastructure.Implementation", "Source\CommandsService.Infrastructure.Implementation\CommandsService.Infrastructure.Implementation.csproj", "{3AB22265-01E6-467F-98EE-87979C1D4F39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService.Entry", "Source\CommandsService.Entry\CommandsService.Entry.csproj", "{D2D93524-78F9-4EBD-94EE-8456442E6C89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandsService.Entry", "Source\CommandsService.Entry\CommandsService.Entry.csproj", "{D2D93524-78F9-4EBD-94EE-8456442E6C89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandsService.Entry.WebApi", "Source\CommandsService.Entry.WebApi\CommandsService.Entry.WebApi.csproj", "{1B661C4C-0AAC-4E1C-A9DD-C425382BC77C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{D2D93524-78F9-4EBD-94EE-8456442E6C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2D93524-78F9-4EBD-94EE-8456442E6C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2D93524-78F9-4EBD-94EE-8456442E6C89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B661C4C-0AAC-4E1C-A9DD-C425382BC77C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B661C4C-0AAC-4E1C-A9DD-C425382BC77C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B661C4C-0AAC-4E1C-A9DD-C425382BC77C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B661C4C-0AAC-4E1C-A9DD-C425382BC77C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{D615D568-9DD4-4481-80E1-FEE2F4705199} = {C6FF825F-5443-46D1-A367-2F36AB98A6DF}
 		{3AB22265-01E6-467F-98EE-87979C1D4F39} = {C6FF825F-5443-46D1-A367-2F36AB98A6DF}
 		{D2D93524-78F9-4EBD-94EE-8456442E6C89} = {C6FF825F-5443-46D1-A367-2F36AB98A6DF}
+		{1B661C4C-0AAC-4E1C-A9DD-C425382BC77C} = {C6FF825F-5443-46D1-A367-2F36AB98A6DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0D961833-563A-4804-B489-5CFBC03FC6D6}
