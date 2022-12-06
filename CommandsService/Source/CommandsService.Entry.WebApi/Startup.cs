@@ -1,8 +1,11 @@
+using CommandsService.Entry.WebApi.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using AppProfile = CommandsService.Entry.InMemoryProfile;
 
 namespace CommandsService.Entry.WebApi
 {
@@ -17,27 +20,46 @@ namespace CommandsService.Entry.WebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
+            AppProfile.AddLayers(services, Configuration);
 
             services.AddControllers();
+
+            services.AddSwaggerGen(options => options
+                .SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "PlatformService",
+                    Version = "v1"
+                }));
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder builder, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                builder.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            builder.UseMiddleware<AppExceptionHandlerMiddleware>();
 
-            app.UseRouting();
+            builder.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            builder.UseSwagger();
 
-            app.UseEndpoints(endpoints =>
+            builder.UseSwaggerUI();
+
+            builder.UseRouting();
+
+            builder.UseAuthorization();
+
+            builder.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            using (var serviceScope = builder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                AppProfile.RunStartupActions(serviceScope);
+            }
         }
     }
 }
