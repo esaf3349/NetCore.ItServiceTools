@@ -3,7 +3,7 @@ using CommandsService.Application.ViewModels.Platforms;
 
 namespace CommandsService.Application.Models.Platforms
 {
-    public class PlatformsGetByIdQuery : GetByIdAbstractQuery<PlatformsGetByIdVm>
+    public class PlatformsGetByIdQuery : GetByIdBaseQuery<PlatformsGetByIdVm>
     {
 
     }

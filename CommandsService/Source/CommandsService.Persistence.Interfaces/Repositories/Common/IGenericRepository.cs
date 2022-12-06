@@ -1,4 +1,4 @@
-﻿using CommandsService.Core.Interfaces;
+﻿using CommandsService.Core.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;

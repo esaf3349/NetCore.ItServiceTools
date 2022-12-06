@@ -1,4 +1,4 @@
-﻿using PlatformService.Core.Interfaces;
+﻿using PlatformService.Core.Common.Interfaces;
 
 namespace PlatformService.Core.Entities.Common
 {

@@ -1,4 +1,4 @@
-﻿using CommandsService.Core.Interfaces;
+﻿using CommandsService.Core.Common.Interfaces;
 
 namespace CommandsService.Core.Entities.Common
 {

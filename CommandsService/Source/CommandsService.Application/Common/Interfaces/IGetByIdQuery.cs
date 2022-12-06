@@ -1,7 +1,9 @@
-﻿namespace CommandsService.Application.Common.Interfaces
+﻿using CommandsService.Core.Common.Interfaces;
+
+namespace CommandsService.Application.Common.Interfaces
 {
-    public interface IGetByIdQuery
+    public interface IGetByIdQuery : IIntKeyIdentifiable
     {
-        int Id { get; set; }
+
     }
 }

@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using PlatformService.Entry.WebApi.Controllers.Common;
 using PlatformService.Application.ViewModels.Platforms;
 using PlatformService.Application.Models.Platforms;
-using PlatformService.Entry.WebApi.Models.Common;
 using Microsoft.AspNetCore.Http;
 
 namespace PlatformService.Entry.WebApi.Controllers
@@ -11,9 +10,10 @@ namespace PlatformService.Entry.WebApi.Controllers
     public class PlatformsController : BaseController
     {
         [HttpGet("get/all")]
-        public async Task<ActionResult<PlatformsGetAllVm>> GetAll([FromQuery] Page page)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<PlatformsGetAllVm>> GetAll([FromQuery] PlatformsGetAllQuery query)
         {
-            var vm = await Mediator.Send(new PlatformsGetAllQuery { PageNumber = page.Number, PageSize = page.Size });
+            var vm = await Mediator.Send(query);
 
             return Ok(vm);
         }

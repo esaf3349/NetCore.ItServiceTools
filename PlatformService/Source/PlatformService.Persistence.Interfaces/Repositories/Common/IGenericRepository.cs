@@ -1,4 +1,4 @@
-﻿using PlatformService.Core.Interfaces;
+﻿using PlatformService.Core.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;

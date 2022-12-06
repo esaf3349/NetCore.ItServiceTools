@@ -7,7 +7,7 @@ namespace PlatformService.Entry.WebApi.Controllers.Common
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BaseController : ControllerBase
+    public abstract class BaseController : ControllerBase
     {
         private IMediator _mediator;
 
