@@ -17,5 +17,15 @@ namespace CommandsService.Entry.WebApi.Controllers
 
             return Ok(vm);
         }
+
+        [HttpPost("create")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult<int>> Create([FromBody] PlatformsCreateCommand command)
+        {
+            var id = await Mediator.Send(command);
+
+            return Ok(id);
+        }
     }
 }

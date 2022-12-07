@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PlatformService.Application;
+using PlatformService.Infrastructure.Implementation;
 using PlatformService.Persistence.EntityFramework;
 using System;
 
@@ -14,6 +15,8 @@ namespace PlatformService.Entry
             services.AddSqlServerPersistence(configuration);
 
             services.AddMediatrApplication();
+
+            services.AddInfrastructureImplementation();
         }
 
         public static void RunStartupActions(IServiceScope serviceScope)

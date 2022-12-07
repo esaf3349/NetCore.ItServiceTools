@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PlatformService.Application\PlatformService.Application.csproj" />
+    <ProjectReference Include="..\PlatformService.Infrastructure.Implementation\PlatformService.Infrastructure.Implementation.csproj" />
     <ProjectReference Include="..\PlatformService.Persistence.EntityFramework\PlatformService.Persistence.EntityFramework.csproj" />
   </ItemGroup>
 

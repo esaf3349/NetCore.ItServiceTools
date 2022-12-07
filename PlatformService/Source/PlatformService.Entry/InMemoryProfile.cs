@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PlatformService.Application;
+using PlatformService.Infrastructure.Implementation;
 using PlatformService.Persistence.EntityFramework;
 
 namespace PlatformService.Entry
@@ -12,6 +13,8 @@ namespace PlatformService.Entry
             services.AddInMemoryPersistence(configuration);
 
             services.AddMediatrApplication();
+
+            services.AddInfrastructureImplementation();
         }
 
         public static void RunStartupActions(IServiceScope serviceScope)

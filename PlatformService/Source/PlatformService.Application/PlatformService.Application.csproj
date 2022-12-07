@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PlatformService.Core\PlatformService.Core.csproj" />
+    <ProjectReference Include="..\PlatformService.Infrastructure.Interfaces\PlatformService.Infrastructure.Interfaces.csproj" />
     <ProjectReference Include="..\PlatformService.Persistence.Interfaces\PlatformService.Persistence.Interfaces.csproj" />
   </ItemGroup>
 
