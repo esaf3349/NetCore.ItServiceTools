@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>5ba41eef-7644-4933-b0ae-a0ba3ef20a9d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+	<DockerfileTag>it-service-tools.commands-service</DockerfileTag>
   </PropertyGroup>
 
   <ItemGroup>
