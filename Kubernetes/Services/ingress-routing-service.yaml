@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-routing-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    - host: esaf.com
+      http:
+        paths:
+          - path: /platforms/api/platforms
+            pathType: Prefix
+            backend:
+              service:
+                name: platforms-cluster-ip-service
+                port:
+                  number: 80
+          - path: /commands/api/platforms
+            pathType: Prefix
+            backend:
+              service:
+                name: commands-cluster-ip-service
+                port:
+                  number: 80
+          - path: /commands/api/commands
+            pathType: Prefix
+            backend:
+              service:
+                name: commands-cluster-ip-service
+                port:
+                  number: 80

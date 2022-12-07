@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CommandsService.Entry.WebApi.Controllers.Common
 {
-    [Route("api/[controller]")]
+    [Route("commands/api/[controller]")]
     [ApiController]
     public abstract class BaseController : ControllerBase
     {
