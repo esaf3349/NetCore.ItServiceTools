@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using PlatformService.Application.Common.PipelineBehaviors;
+using PlatformService.Application.MappingProfiles;
 using System.Reflection;
 
 namespace PlatformService.Application
@@ -9,7 +10,7 @@ namespace PlatformService.Application
     {
         public static IServiceCollection AddMediatrApplication(this IServiceCollection services)
         {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(typeof(PlatformsMappingProfile));
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));

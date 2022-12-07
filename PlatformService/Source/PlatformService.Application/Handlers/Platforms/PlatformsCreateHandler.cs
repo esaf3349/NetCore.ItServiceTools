@@ -33,7 +33,9 @@ namespace PlatformService.Application.Handlers.Platforms
 
             await _uow.CommitAsync(cancellationToken);
 
-            await _commandsDataClient.SendPlatformToCommandsService(new PlatformsCreateDto { ExternalId = entity.Id, Name = request.Name }, cancellationToken);
+            var dto = _mapper.Map<PlatformsCreateDto>(entity);
+
+            await _commandsDataClient.SendPlatformToCommandsService(dto, cancellationToken);
 
             return entity.Id;
         }

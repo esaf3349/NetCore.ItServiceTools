@@ -4,6 +4,7 @@ using PlatformService.Infrastructure.Interfaces.Dtos.CommandsDataClient;
 using PlatformService.Infrastructure.Interfaces.Http;
 using System;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,11 +26,15 @@ namespace PlatformService.Infrastructure.Implementation.Http
 
         public async Task SendPlatformToCommandsService(PlatformsCreateDto platform, CancellationToken cancellationToken = default)
         {
-            var httpContent = new StringContent(JsonSerializer.Serialize(platform));
+            var httpContent = new StringContent(JsonSerializer.Serialize(platform), Encoding.UTF8, "application/json");
 
             try
             {
-                var response = await _httpClient.PostAsync(_config["CommandsService:Endpoint"] + _config["PlatformsController:CreatePath"], httpContent);
+                var response = await _httpClient.PostAsync(_config["CommandsService:Endpoint"] + _config["CommandsService:PlatformsController:CreatePath"], httpContent);
+                if (!response.IsSuccessStatusCode)
+                {
+                    _logger.LogError($"Could not send synchronous message to CommandsService. It returned {response.StatusCode}, reason: \"{response.ReasonPhrase}\".");
+                }
             }
             catch (Exception ex)
             {
