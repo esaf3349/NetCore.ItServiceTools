@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: commands-mssql-load-balancer-service
+  name: platforms-mssql-load-balancer-service
 spec:
   type: LoadBalancer
   selector:
-    app: commands-mssql
+    app: platforms-mssql-app
   ports:
   - protocol: TCP
     port: 1433

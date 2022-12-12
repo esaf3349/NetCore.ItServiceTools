@@ -6,12 +6,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: commands-service
+      app: commands-web-app
   template:
     metadata:
       labels:
-        app: commands-service
+        app: commands-web-app
     spec:
       containers:
-        - name: commands-service
+        - name: commands-web-app
           image: esaf/it-service-tools.commands-service:latest

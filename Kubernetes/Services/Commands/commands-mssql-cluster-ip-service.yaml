@@ -5,9 +5,9 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: commands-mssql
+    app: commands-mssql-app
   ports:
-  - name: commands-mssql
+  - name: commands-mssql-app
     protocol: TCP
     port: 1433
     targetPort: 1433

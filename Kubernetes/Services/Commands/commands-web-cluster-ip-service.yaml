@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: commands-cluster-ip-service
+  name: commands-web-cluster-ip-service
 spec:
   type: ClusterIP
   selector:
-    app: commands-service
+    app: commands-web-app
   ports:
-  - name: commands-service
+  - name: commands-web-app
     protocol: TCP
     port: 80
     targetPort: 80

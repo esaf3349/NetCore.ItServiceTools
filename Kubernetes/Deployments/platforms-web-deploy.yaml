@@ -6,12 +6,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: platform-service
+      app: platforms-web-app
   template:
     metadata:
       labels:
-        app: platform-service
+        app: platforms-web-app
     spec:
       containers:
-        - name: platform-service
+        - name: platforms-web-app
           image: esaf/it-service-tools.platform-service:latest
