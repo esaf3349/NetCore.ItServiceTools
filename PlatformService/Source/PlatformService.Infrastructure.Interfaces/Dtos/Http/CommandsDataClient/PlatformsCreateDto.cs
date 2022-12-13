@@ -1,4 +1,4 @@
-﻿namespace PlatformService.Infrastructure.Interfaces.Dtos.CommandsDataClient
+﻿namespace PlatformService.Infrastructure.Interfaces.Dtos.Http.CommandsDataClient
 {
     public class PlatformsCreateDto
     {

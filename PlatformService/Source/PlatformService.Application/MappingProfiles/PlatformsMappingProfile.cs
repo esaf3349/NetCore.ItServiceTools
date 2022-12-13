@@ -3,7 +3,8 @@ using PlatformService.Application.Dtos.Platforms;
 using PlatformService.Application.Models.Platforms;
 using PlatformService.Application.ViewModels.Platforms;
 using PlatformService.Core.Entities;
-using PlatformService.Infrastructure.Interfaces.Dtos.CommandsDataClient;
+using PlatformService.Infrastructure.Interfaces.Dtos.Http.CommandsDataClient;
+using PlatformService.Infrastructure.Interfaces.Dtos.MessageBus.MessageBusClient;
 
 namespace PlatformService.Application.MappingProfiles
 {
@@ -26,6 +27,8 @@ namespace PlatformService.Application.MappingProfiles
         {
             CreateMap<Platform, PlatformsCreateDto>()
                 .ForMember(dest => dest.ExternalId, opt => opt.MapFrom(src => src.Id));
+
+            CreateMap<Platform, PlatformsPublishDto>();
         }
     }
 }

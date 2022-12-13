@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using PlatformService.Infrastructure.Interfaces.Dtos.CommandsDataClient;
-using PlatformService.Infrastructure.Interfaces.Http;
+using PlatformService.Infrastructure.Interfaces.Dtos.Http.CommandsDataClient;
+using PlatformService.Infrastructure.Interfaces.Services.Http;
 using System;
 using System.Net.Http;
 using System.Text;

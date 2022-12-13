@@ -1,8 +1,8 @@
-﻿using PlatformService.Infrastructure.Interfaces.Dtos.CommandsDataClient;
+﻿using PlatformService.Infrastructure.Interfaces.Dtos.Http.CommandsDataClient;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PlatformService.Infrastructure.Interfaces.Http
+namespace PlatformService.Infrastructure.Interfaces.Services.Http
 {
     public interface ICommandsDataClient
     {

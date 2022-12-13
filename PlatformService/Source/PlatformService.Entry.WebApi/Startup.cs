@@ -39,6 +39,8 @@ namespace PlatformService.Entry.WebApi
                 builder.UseDeveloperExceptionPage();
             }
 
+            builder.UseHttpsRedirection();
+
             builder.UseMiddleware<AppExceptionHandlerMiddleware>();
 
             builder.UseHttpsRedirection();
