@@ -2,6 +2,7 @@
 using MediatR;
 using PlatformService.Application.Models.Platforms;
 using PlatformService.Core.Entities;
+using PlatformService.Infrastructure.Interfaces.Constants.MessageBus;
 using PlatformService.Infrastructure.Interfaces.Dtos.Http.CommandsDataClient;
 using PlatformService.Infrastructure.Interfaces.Dtos.MessageBus.MessageBusClient;
 using PlatformService.Infrastructure.Interfaces.Services.Http;
@@ -17,9 +18,9 @@ namespace PlatformService.Application.Handlers.Platforms
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
         private readonly ICommandsDataClient _commandsDataClient;
-        private readonly IMessageBusClient _messageBusClient;
+        private readonly IPlatformsMessageBusPublisher _messageBusClient;
 
-        public PlatformsCreateHandler(IUnitOfWork uow, IMapper mapper, ICommandsDataClient commandsDataClient, IMessageBusClient messageBusClient)
+        public PlatformsCreateHandler(IUnitOfWork uow, IMapper mapper, ICommandsDataClient commandsDataClient, IPlatformsMessageBusPublisher messageBusClient)
         {
             _uow = uow;
             _mapper = mapper;
@@ -41,10 +42,10 @@ namespace PlatformService.Application.Handlers.Platforms
 
             await _commandsDataClient.SendPlatformToCommandsService(httpClientDto, cancellationToken);
 
-            var messageBusDto = _mapper.Map<PlatformsPublishDto>(entity);
-            messageBusDto.Event = "Create";
+            var messageBusDto = _mapper.Map<PlatformsCreateEventDto>(entity);
+            messageBusDto.Type = MessageBusEvents.Types.Create;
 
-            _messageBusClient.PlatformsPublish(messageBusDto);
+            _messageBusClient.Publish(messageBusDto);
 
             return entity.Id;
         }

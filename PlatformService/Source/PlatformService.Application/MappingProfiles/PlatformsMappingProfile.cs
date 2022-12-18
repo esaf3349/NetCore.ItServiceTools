@@ -28,7 +28,7 @@ namespace PlatformService.Application.MappingProfiles
             CreateMap<Platform, PlatformsCreateDto>()
                 .ForMember(dest => dest.ExternalId, opt => opt.MapFrom(src => src.Id));
 
-            CreateMap<Platform, PlatformsPublishDto>();
+            CreateMap<Platform, PlatformsCreateEventDto>();
         }
     }
 }

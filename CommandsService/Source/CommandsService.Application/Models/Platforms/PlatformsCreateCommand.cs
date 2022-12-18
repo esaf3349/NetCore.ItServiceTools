@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using CommandsService.Application.Common.Interfaces;
+using MediatR;
 
 namespace CommandsService.Application.Models.Platforms
 {

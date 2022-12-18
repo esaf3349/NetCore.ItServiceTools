@@ -7,34 +7,45 @@ using System;
 using System.Text;
 using System.Text.Json;
 
-namespace PlatformService.Infrastructure.Implementation.MessageBus
+namespace PlatformService.Infrastructure.Implementation.MessageBus.Publishers
 {
-    public class RabbitMqClient : IMessageBusClient
+    public class PlatformsPublisher : IPlatformsMessageBusPublisher
     {
         private readonly IConfiguration _config;
-        private readonly ILogger<RabbitMqClient> _logger;
-        private readonly IConnection _connection;
-        private readonly IModel _channel;
-        private const string _exchangeName = "trigger";
+        private readonly ILogger<PlatformsPublisher> _logger;
+
+        private PlatformsEventHandler _platformsEventHandler;
+
+        private IConnection _connection;
+        private IModel _channel;
+        private string _exchangeName;
         private bool _isDisposed = false;
 
-        public RabbitMqClient(IConfiguration config, ILogger<RabbitMqClient> logger)
+        public PlatformsPublisher(IConfiguration config, ILogger<PlatformsPublisher> logger)
         {
             _config = config;
             _logger = logger;
 
-            var factory = new ConnectionFactory()
-            {
-                HostName = _config["RabbitMQ:HostName"],
-                Port = int.Parse(_config["RabbitMQ:Port"])
-            };
+            _platformsEventHandler = new PlatformsEventHandler(_logger);
 
+            Connect();
+        }
+
+        private void Connect()
+        {
             try
             {
+                var factory = new ConnectionFactory()
+                {
+                    HostName = _config["RabbitMQ:HostName"],
+                    Port = int.Parse(_config["RabbitMQ:Port"])
+                };
+
                 _connection = factory.CreateConnection();
                 _channel = _connection.CreateModel();
+                _exchangeName = _config["RabbitMQ:Exchanges:PlatformsName"];
                 _channel.ExchangeDeclare(_exchangeName, ExchangeType.Fanout);
-                _connection.ConnectionShutdown += new RabbitMqEventHandlers(_logger).HandleConnectionShutdown;
+                _connection.ConnectionShutdown += _platformsEventHandler.HandleConnectionShutdown;
 
                 _logger.LogInformation("Connected to message bus.");
             }
@@ -44,7 +55,7 @@ namespace PlatformService.Infrastructure.Implementation.MessageBus
             }
         }
 
-        public void PlatformsPublish(PlatformsPublishDto platform)
+        public void Publish(PlatformsCreateEventDto platform)
         {
             var message = JsonSerializer.Serialize(platform);
 

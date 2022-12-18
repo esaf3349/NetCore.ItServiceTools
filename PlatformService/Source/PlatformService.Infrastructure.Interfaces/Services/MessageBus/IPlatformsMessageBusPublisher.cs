@@ -3,8 +3,8 @@ using System;
 
 namespace PlatformService.Infrastructure.Interfaces.Services.MessageBus
 {
-    public interface IMessageBusClient : IDisposable
+    public interface IPlatformsMessageBusPublisher : IDisposable
     {
-        void PlatformsPublish(PlatformsPublishDto platform);
+        void Publish(PlatformsCreateEventDto platform);
     }
 }
