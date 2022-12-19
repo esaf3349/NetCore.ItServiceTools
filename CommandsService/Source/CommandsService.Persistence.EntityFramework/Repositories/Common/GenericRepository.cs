@@ -46,7 +46,7 @@ namespace CommandsService.Persistence.EntityFramework.Repositories.Common
 
         public virtual async Task<TEntity> GetOneAsync(Expression<Func<TEntity, bool>> filter, CancellationToken cancellationToken = default)
         {
-            return await _dbSet.FirstAsync(filter, cancellationToken);
+            return await _dbSet.FirstOrDefaultAsync(filter, cancellationToken);
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetManyAsync(Expression<Func<TEntity, bool>> filter, int pageNumber, int pageSize, CancellationToken cancellationToken = default)

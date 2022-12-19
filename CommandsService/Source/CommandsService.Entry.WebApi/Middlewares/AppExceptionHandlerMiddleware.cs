@@ -35,12 +35,16 @@ namespace CommandsService.Entry.WebApi.Middlewares
 
             switch (exception)
             {
-                case ValidationException validationException:
+                case AlreadyExistsException alreadyExistsException:
                     code = HttpStatusCode.BadRequest;
-                    result = JsonConvert.SerializeObject(validationException.Failures);
+                    result = alreadyExistsException.ToString();
                     break;
                 case NotFoundException:
                     code = HttpStatusCode.NotFound;
+                    break;
+                case ValidationException validationException:
+                    code = HttpStatusCode.BadRequest;
+                    result = JsonConvert.SerializeObject(validationException.Failures);
                     break;
             }
 

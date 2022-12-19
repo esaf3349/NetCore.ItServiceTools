@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlatformService.Application.Common.Exceptions;
 using PlatformService.Application.Models.Platforms;
 using PlatformService.Core.Entities;
 using PlatformService.Infrastructure.Interfaces.Constants.MessageBus;
@@ -30,6 +31,11 @@ namespace PlatformService.Application.Handlers.Platforms
 
         public async Task<int> Handle(PlatformsCreateCommand request, CancellationToken cancellationToken)
         {
+            var existingEntity = await _uow.Platforms.GetOneAsync(p => p.Name == request.Name && !p.IsDeleted, cancellationToken);
+
+            if (existingEntity != null)
+                throw new AlreadyExistsException(nameof(Platform), nameof(existingEntity.Name), request.Name);
+
             var entity = _mapper.Map<Platform>(request);
 
             entity.IsDeleted = false;
