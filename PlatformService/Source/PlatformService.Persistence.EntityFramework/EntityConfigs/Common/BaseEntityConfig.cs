@@ -10,6 +10,8 @@ namespace PlatformService.Persistence.EntityFramework.EntityConfigs.Common
         {
             builder.HasKey(e => e.Id);
             builder.Property(e => e.IsDeleted).IsRequired();
+
+            builder.HasIndex(c => c.IsDeleted);
         }
     }
 }

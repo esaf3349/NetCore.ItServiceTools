@@ -3,14 +3,16 @@ using CommandsService.Persistence.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CommandsService.Persistence.EntityFramework.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221220074822_Alter_Platforms_Add_Nonclustered_Indexes")]
+    partial class Alter_Platforms_Add_Nonclustered_Indexes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,8 +44,6 @@ namespace CommandsService.Persistence.EntityFramework.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
 
                     b.HasIndex("PlatformId");
 

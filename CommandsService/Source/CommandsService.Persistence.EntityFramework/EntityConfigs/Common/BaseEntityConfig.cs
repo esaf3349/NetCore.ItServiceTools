@@ -10,6 +10,8 @@ namespace CommandsService.Persistence.EntityFramework.EntityConfigs.Common
         {
             builder.HasKey(entity => entity.Id);
             builder.Property(entity => entity.IsDeleted).IsRequired();
+
+            builder.HasIndex(c => c.IsDeleted);
         }
     }
 }

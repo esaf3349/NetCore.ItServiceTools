@@ -18,6 +18,8 @@ namespace CommandsService.Persistence.EntityFramework.EntityConfigs
 
             builder.Property(platform => platform.ExternalId)
                 .IsRequired();
+
+            builder.HasIndex(c => new { c.Name, c.IsDeleted });
         }
     }
 }

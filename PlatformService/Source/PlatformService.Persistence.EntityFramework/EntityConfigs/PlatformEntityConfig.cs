@@ -25,6 +25,8 @@ namespace PlatformService.Persistence.EntityFramework.EntityConfigs
                 .HasColumnType("nvarchar(100)")
                 .HasMaxLength(100)
                 .IsRequired();
+
+            builder.HasIndex(c => new { c.Name, c.IsDeleted } );
         }
     }
 }
