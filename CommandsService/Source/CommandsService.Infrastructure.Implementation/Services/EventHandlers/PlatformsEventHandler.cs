@@ -39,7 +39,7 @@ namespace CommandsService.Infrastructure.Implementation.Services.EventHandlers
                 {
                     case MessageBusEvents.Types.Create:
                         logger.LogInformation("RabbitMQ create event received.");
-                        eventProcessor.ProcessCreate(message);
+                        eventProcessor.ProcessCreate(message).Wait();
                         break;
 
                     default:

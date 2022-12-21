@@ -2,11 +2,11 @@
 using CommandsService.Application.Models.Platforms;
 using CommandsService.Infrastructure.Implementation.Dtos;
 
-namespace CommandsService.Infrastructure.Implementation.MappingProfiles
+namespace CommandsService.Entry.MappingProfiles.MessageBus
 {
-    internal class PlatformsMappingProfile : Profile
+    internal class RabbitMqMappingProfile : Profile
     {
-        public PlatformsMappingProfile()
+        public RabbitMqMappingProfile()
         {
             CreateMap<PlatformsCreateEventDto, PlatformsCreateCommand>()
                 .ForMember(dest => dest.ExternalId, opt => opt.MapFrom(src => src.Id));

@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CommandsService.Application\CommandsService.Application.csproj" />
     <ProjectReference Include="..\CommandsService.Infrastructure.Implementation\CommandsService.Infrastructure.Implementation.csproj" />
     <ProjectReference Include="..\CommandsService.Persistence.EntityFramework\CommandsService.Persistence.EntityFramework.csproj" />

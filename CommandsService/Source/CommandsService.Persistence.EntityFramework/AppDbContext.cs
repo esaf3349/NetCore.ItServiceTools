@@ -1,5 +1,4 @@
 ﻿using CommandsService.Core.Entities;
-using CommandsService.Persistence.EntityFramework.EntityConfigs;
 using Microsoft.EntityFrameworkCore;
 
 namespace CommandsService.Persistence.EntityFramework
@@ -13,10 +12,7 @@ namespace CommandsService.Persistence.EntityFramework
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new CommandEntityConfig());
-            builder.ApplyConfiguration(new PlatformEntityConfig());
-
-            base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         }
 
         public DbSet<Command> Commands { get; set; }

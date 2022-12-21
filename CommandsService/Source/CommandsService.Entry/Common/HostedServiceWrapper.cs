@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Hosting;
-using System.Threading;
 using System.Threading.Tasks;
+using System.Threading;
 
-namespace CommandsService.Infrastructure.Implementation.Common
+namespace CommandsService.Entry.Common
 {
     internal class HostedServiceWrapper<TService> : IHostedService
     {

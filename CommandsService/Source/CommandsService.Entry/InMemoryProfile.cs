@@ -14,7 +14,7 @@ namespace CommandsService.Entry
 
             services.AddMediatrApplication();
 
-            services.AddRabbitMqInfrastructure();
+            services.AddRabbitMqMessageBus();
         }
 
         public static void RunStartupActions(IServiceScope serviceScope)

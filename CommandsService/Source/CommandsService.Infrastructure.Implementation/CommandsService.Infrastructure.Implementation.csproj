@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CommandsService.Application\CommandsService.Application.csproj" />
     <ProjectReference Include="..\CommandsService.Infrastructure.Interfaces\CommandsService.Infrastructure.Interfaces.csproj" />
   </ItemGroup>
 

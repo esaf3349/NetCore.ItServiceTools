@@ -1,7 +1,10 @@
-﻿namespace CommandsService.Infrastructure.Interfaces.Services.MessageBus.EventProcessors
+﻿using System.Threading;
+using System.Threading.Tasks;
+
+namespace CommandsService.Infrastructure.Interfaces.Services.MessageBus.EventProcessors
 {
     public interface IPlatformsEventProcessor
     {
-        void ProcessCreate(string message);
+        Task ProcessCreate(string message, CancellationToken cancellationToken = default);
     }
 }
