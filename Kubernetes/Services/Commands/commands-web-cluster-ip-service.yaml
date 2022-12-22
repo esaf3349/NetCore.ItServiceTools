@@ -7,7 +7,7 @@ spec:
   selector:
     app: commands-web-app
   ports:
-  - name: commands-web-app
+  - name: commands-http-port
     protocol: TCP
     port: 80
     targetPort: 80

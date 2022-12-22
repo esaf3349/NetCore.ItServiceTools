@@ -7,7 +7,7 @@ spec:
   selector:
     app: commands-mssql-app
   ports:
-  - name: commands-mssql-app
+  - name: commands-http-port
     protocol: TCP
     port: 1433
     targetPort: 1433

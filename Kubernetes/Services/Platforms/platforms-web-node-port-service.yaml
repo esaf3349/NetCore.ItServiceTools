@@ -7,7 +7,7 @@ spec:
   selector:
     app: platforms-web-app
   ports:
-    - name: platforms-web-app
+    - name: platforms-http-port
       protocol: TCP
       port: 80
       targetPort: 80

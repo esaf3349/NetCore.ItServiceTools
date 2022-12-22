@@ -7,7 +7,11 @@ spec:
   selector:
     app: platforms-web-app
   ports:
-  - name: platforms-web-app
+  - name: platforms-http-port
     protocol: TCP
     port: 80
     targetPort: 80
+  - name: platforms-grpc-port
+    protocol: TCP
+    port: 888
+    targetPort: 888
