@@ -56,6 +56,8 @@ namespace PlatformService.Entry.WebApi
             builder.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+
+                AppProfile.AddEndpoints(endpoints);
             });
 
             using (var serviceScope = builder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())

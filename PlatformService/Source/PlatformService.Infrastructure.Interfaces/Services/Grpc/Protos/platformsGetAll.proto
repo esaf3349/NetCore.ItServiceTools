@@ -1,0 +1,18 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "PlatformService.Infrastructure.Interfaces";
+
+service PlatformsGrpcService {
+	rpc PlatformsGetAll (PlatformsGetAllRequest) returns (PlatformsGetAllVm);
+}
+
+message PlatformsGetAllRequest {}
+
+message PlatformsGetAllDto {
+	int32 id = 1;
+	string name = 2;
+}
+
+message PlatformsGetAllVm {
+	repeated PlatformsGetAllDto platforms = 1;
+}

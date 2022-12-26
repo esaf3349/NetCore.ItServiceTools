@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PlatformService.Application;
 using PlatformService.Infrastructure.Implementation;
@@ -15,6 +16,11 @@ namespace PlatformService.Entry
             services.AddMediatrApplication();
 
             services.AddInfrastructureImplementation();
+        }
+
+        public static void AddEndpoints(IEndpointRouteBuilder builder)
+        {
+            builder.AddGrpcServices();
         }
 
         public static void RunStartupActions(IServiceScope serviceScope)
