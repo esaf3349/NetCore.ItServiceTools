@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
-namespace CommandsService.Infrastructure.Implementation.Services.EventHandlers
+namespace CommandsService.Infrastructure.Implementation.Services.MessageBus.EventHandlers
 {
     public class PlatformsEventHandler
     {

@@ -58,7 +58,12 @@ namespace CommandsService.Entry.WebApi
 
             using (var serviceScope = builder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                AppProfile.RunStartupActions(serviceScope);
+                AppProfile.InitializeDb(serviceScope);
+            }
+
+            using (var serviceScope = builder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                AppProfile.SeedData(serviceScope).Wait();
             }
         }
     }

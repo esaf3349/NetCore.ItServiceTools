@@ -23,7 +23,7 @@ namespace PlatformService.Entry
             builder.AddGrpcServices();
         }
 
-        public static void RunStartupActions(IServiceScope serviceScope)
+        public static void InitializeDb(IServiceScope serviceScope)
         {
 
         }

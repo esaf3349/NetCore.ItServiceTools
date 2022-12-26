@@ -5,7 +5,7 @@ using PlatformService.Application.Models.Platforms;
 using PlatformService.Infrastructure.Interfaces;
 using System.Threading.Tasks;
 
-namespace PlatformService.Infrastructure.Implementation.Grpc
+namespace PlatformService.Infrastructure.Implementation.Services.Grpc
 {
     public class PlatformsSeedDataService : PlatformsGrpcService.PlatformsGrpcServiceBase
     {
@@ -29,7 +29,7 @@ namespace PlatformService.Infrastructure.Implementation.Grpc
                 response.Platforms.Add(_mapper.Map<PlatformsGetAllDto>(platform));
             }
 
-            return base.PlatformsGetAll(request, context);
+            return Task.FromResult(response);
         }
     }
 }

@@ -1,10 +1,17 @@
-﻿using CommandsService.Application;
+﻿using AutoMapper;
+using CommandsService.Application;
+using CommandsService.Application.Common.Exceptions;
+using CommandsService.Application.Models.Platforms;
 using CommandsService.Infrastructure.Implementation;
+using CommandsService.Infrastructure.Interfaces.Services.Grpc;
 using CommandsService.Persistence.EntityFramework;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CommandsService.Entry
 {
@@ -17,9 +24,11 @@ namespace CommandsService.Entry
             services.AddMediatrApplication();
 
             services.AddRabbitMqMessageBus();
+
+            services.AddInfrastructureImplementation();
         }
 
-        public static void RunStartupActions(IServiceScope serviceScope)
+        public static void InitializeDb(IServiceScope serviceScope)
         {
             try
             {
@@ -28,7 +37,38 @@ namespace CommandsService.Entry
             catch (Exception ex)
             {
                 var logger = serviceScope.ServiceProvider.GetRequiredService<ILogger<SqlServerProfile>>();
-                logger.LogError(ex, "An error occurred while migrating or initializing the database.");
+                logger.LogError(ex, "Could not migrate or initialize the database.");
+            }
+        }
+
+        public static async Task SeedData(IServiceScope serviceScope, CancellationToken cancellationToken = default)
+        {
+            var logger = serviceScope.ServiceProvider.GetRequiredService<ILogger<SqlServerProfile>>();
+            var client = serviceScope.ServiceProvider.GetService<IPlatformsSeedDataClient>();
+            var mapper = serviceScope.ServiceProvider.GetService<IMapper>();
+            var mediator = serviceScope.ServiceProvider.GetService<IMediator>();
+
+            var vm = client.Get();
+
+            foreach (var platform in vm.Platforms)
+            {
+                var request = mapper.Map<PlatformsCreateCommand>(platform);
+
+                try
+                {
+                    await mediator.Send(request, cancellationToken);
+                }
+                catch (Exception ex)
+                {
+                    switch (ex)
+                    {
+                        case AlreadyExistsException:
+                            break;
+                        default:
+                            logger.LogError(ex, "Could not seed the data.");
+                            break;
+                    }
+                }
             }
         }
     }

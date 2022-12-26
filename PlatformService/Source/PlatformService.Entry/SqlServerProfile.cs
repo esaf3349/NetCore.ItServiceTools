@@ -25,7 +25,7 @@ namespace PlatformService.Entry
             builder.AddGrpcServices();
         }
 
-        public static void RunStartupActions(IServiceScope serviceScope)
+        public static void InitializeDb(IServiceScope serviceScope)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace PlatformService.Entry
             catch (Exception ex)
             {
                 var logger = serviceScope.ServiceProvider.GetRequiredService<ILogger<SqlServerProfile>>();
-                logger.LogError(ex, "An error occurred while migrating or initializing the database.");
+                logger.LogError(ex, "Could not migrate or initialize the database.");
             }
         }
     }

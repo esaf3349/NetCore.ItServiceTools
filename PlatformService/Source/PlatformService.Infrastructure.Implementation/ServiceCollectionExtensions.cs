@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using PlatformService.Infrastructure.Implementation.Http;
 using PlatformService.Infrastructure.Implementation.MappingProfiles;
-using PlatformService.Infrastructure.Implementation.MessageBus.Publishers;
+using PlatformService.Infrastructure.Implementation.Services.Http;
+using PlatformService.Infrastructure.Implementation.Services.MessageBus.Publishers;
 using PlatformService.Infrastructure.Interfaces.Services.Http;
 using PlatformService.Infrastructure.Interfaces.Services.MessageBus;
 

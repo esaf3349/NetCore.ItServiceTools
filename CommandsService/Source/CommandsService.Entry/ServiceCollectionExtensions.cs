@@ -2,7 +2,7 @@
 using CommandsService.Entry.Common;
 using CommandsService.Entry.MappingProfiles.MessageBus;
 using CommandsService.Infrastructure.Implementation.Services.EventProcessors;
-using CommandsService.Infrastructure.Implementation.Services.Subscribers;
+using CommandsService.Infrastructure.Implementation.Services.MessageBus.Subscribers;
 using CommandsService.Infrastructure.Interfaces.Services.MessageBus.EventProcessors;
 using CommandsService.Infrastructure.Interfaces.Services.MessageBus.Subscribers;
 using Microsoft.Extensions.DependencyInjection;

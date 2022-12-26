@@ -62,7 +62,7 @@ namespace PlatformService.Entry.WebApi
 
             using (var serviceScope = builder.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                AppProfile.RunStartupActions(serviceScope);
+                AppProfile.InitializeDb(serviceScope);
             }
         }
     }

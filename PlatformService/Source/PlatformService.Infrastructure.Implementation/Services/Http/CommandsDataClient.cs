@@ -9,7 +9,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PlatformService.Infrastructure.Implementation.Http
+namespace PlatformService.Infrastructure.Implementation.Services.Http
 {
     public class CommandsDataClient : ICommandsDataClient
     {

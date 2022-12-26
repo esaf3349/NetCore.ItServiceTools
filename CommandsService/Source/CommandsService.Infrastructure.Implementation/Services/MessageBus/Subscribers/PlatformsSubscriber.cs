@@ -1,4 +1,4 @@
-﻿using CommandsService.Infrastructure.Implementation.Services.EventHandlers;
+﻿using CommandsService.Infrastructure.Implementation.Services.MessageBus.EventHandlers;
 using CommandsService.Infrastructure.Interfaces.Services.MessageBus.Subscribers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CommandsService.Infrastructure.Implementation.Services.Subscribers
+namespace CommandsService.Infrastructure.Implementation.Services.MessageBus.Subscribers
 {
     public class PlatformsSubscriber : BackgroundService, IPlatformsSubscriber
     {

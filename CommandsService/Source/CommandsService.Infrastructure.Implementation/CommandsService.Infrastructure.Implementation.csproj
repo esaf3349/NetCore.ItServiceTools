@@ -6,12 +6,15 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.50.0" />
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
     <PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CommandsService.Application\CommandsService.Application.csproj" />
     <ProjectReference Include="..\CommandsService.Infrastructure.Interfaces\CommandsService.Infrastructure.Interfaces.csproj" />
   </ItemGroup>
 

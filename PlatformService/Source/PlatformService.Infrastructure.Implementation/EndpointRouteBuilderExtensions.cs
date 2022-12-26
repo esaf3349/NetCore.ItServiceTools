@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
-using PlatformService.Infrastructure.Implementation.Grpc;
+using PlatformService.Infrastructure.Implementation.Services.Grpc;
 using System.IO;
 
 namespace PlatformService.Infrastructure.Implementation

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 
-namespace PlatformService.Infrastructure.Implementation.MessageBus
+namespace PlatformService.Infrastructure.Implementation.Services.MessageBus
 {
     internal class PlatformsEventHandler
     {

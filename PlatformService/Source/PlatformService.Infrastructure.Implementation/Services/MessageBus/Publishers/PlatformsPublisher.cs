@@ -7,7 +7,7 @@ using System;
 using System.Text;
 using System.Text.Json;
 
-namespace PlatformService.Infrastructure.Implementation.MessageBus.Publishers
+namespace PlatformService.Infrastructure.Implementation.Services.MessageBus.Publishers
 {
     public class PlatformsPublisher : IPlatformsMessageBusPublisher
     {
